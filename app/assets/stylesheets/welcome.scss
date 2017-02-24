@@ -35,30 +35,32 @@ img.bottom {
   margin-top:100px;
 }
 
-#bottom
-{
-  text-align: center;
-  color: #ead7d1;
-  background-color: #004D40;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-a > h1 :hover
-{
-  text-align: center;
-  color: #ead7d1;
-  background-color: #a81527;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-
 .bottom
 {
-  margin-top: 100px;
+  text-align: center;
+  margin-top: 4em;
+  font-size: 300%;
 
 }
+
+.bottom .btn-danger {
+    color: #ead7d1;//字体颜色
+    background-color: #004D40;//背景颜色
+    border-color: #004D40;//边框颜色
+    padding-right: 50px;
+    padding-left: 50px;
+    //font-weight: bold;
+}
+
+.bottom .btn-danger:hover {
+    background-color: #610909;//鼠标放置在btn上的背景颜色
+    border-color: #610909;//鼠标放置在btn上的边框颜色
+    color:#f4f9fb;
+}
+
+
+
+
 
 #hometitle
 {
