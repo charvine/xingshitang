@@ -24,5 +24,5 @@ u.password = "111111"                # 最少要六码
 
 u.password_confirmation = "111111"   # 最少要六码
 
-u.is_admin = false 
+u.is_admin = false
 u.save

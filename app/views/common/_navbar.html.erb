@@ -1,8 +1,12 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display-->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"> 一杯咖啡 </a>
+      <a class="navbar-brand" href="/"><i class="fa fa-coffee" aria-hidden="true"></i>一杯咖啡</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,8 +34,8 @@
         </li>
 
         <% if !current_user %>
-          <li><%= link_to("註冊", new_user_registration_path) %> </li>
-          <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'),new_user_session_path) %> </li>
+          <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#login-modal">登入</a></li>
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -46,7 +50,7 @@
               <% end %>
 
               <li>
-                  <%= link_to("個人訂單列表", account_orders_path) %>
+                  <%= link_to("个人订单列表", account_orders_path) %>
               </li>
                <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
             </ul>
@@ -58,3 +62,41 @@
   </div>
   <!-- /.container-fluid-->
 </nav>
+
+<!-- 以下代码添加在最后 -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>Log in</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true %>
+           <%= f.input :password, required: false %>
+           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "Log in" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h2>Sign up</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+        <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
