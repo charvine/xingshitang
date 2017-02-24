@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     member do
       post :add_to_cart
     end
+    resources :comments
   end
 
   resources :carts do

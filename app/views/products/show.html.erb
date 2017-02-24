@@ -18,10 +18,19 @@
     <div class="pull-right">
 
       <% if @product.quantity.present? && @product.quantity > 0 %>
-      <%= link_to("加入購物車", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger")%>
+      <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger")%>
       <% else %>
-      已銷售一空，無法購買
+      已销售一空，无法购买
       <% end %>
+    </div>
+    <h3 class="comments_title">
+      <%= @product.comments.count %> Comments
+    </h3>
+    <hr>
+    <div id="comments">
+      <%= render @product.comments%>
+      <%= render "comments/form"%>
+
     </div>
   </div>
 </div>
