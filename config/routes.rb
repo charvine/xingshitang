@@ -44,8 +44,9 @@ Rails.application.routes.draw do
 
 
   namespace :account do
-    resources :orders
+    resources :orders, :favorites, only: [:index]
   end
+  resources :favorites, only: [:create, :destroy]
 
   resources :welcome do
   end
