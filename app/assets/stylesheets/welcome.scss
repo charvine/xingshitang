@@ -53,9 +53,16 @@ img.bottom {
 }
 
 .bottom .btn-danger:hover {
-    background-color: #610909;//鼠标放置在btn上的背景颜色
-    border-color: #610909;//鼠标放置在btn上的边框颜色
+    background-color: #9b2449;//鼠标放置在btn上的背景颜色
+    border-color: #9b2449;//鼠标放置在btn上的边框颜色
     color:#f4f9fb;
+}
+
+.bottom .btn-danger:active, .btn-danger.active {
+	border-color: #9b2449 !important;
+	color: white !important;
+	box-shadow: none;
+  background: #9b2449 !important;
 }
 
 

@@ -123,6 +123,7 @@
      border-color: #004D40;//边框色
      margin-bottom: 0;//底部 margin 不撑开距离
      color: #004D40;
+     padding-top: 10px;
 
  }
 
@@ -213,14 +214,45 @@
 //  border-radius: 0;//圆角为0
 //}
 
-.btn-danger {
-    color: #ead7d1;//字体颜色
-    background-color: #004D40;//背景颜色
-    border-color: #004D40;//边框颜色
-    font-size: 1em;
+.btn-info{
+  border-radius: 24px;
+  background: none;
+	padding: 12px 22px;
+  border: 2px solid #ead7d1;
+	color: #ead7d1;
 }
 
-.btn-danger:hover {
-    background-color: #80DEEA;//鼠标放置在btn上的背景颜色
-    border-color: #004D40;//鼠标放置在btn上的边框颜色
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
+	color: #350307;
+	border-color: #350307;
+  background: none;
+}
+
+.btn-info:active, .btn-info.active {// click color
+	border-color: #350307 !important;
+	color: #350307 !important;
+	box-shadow: none;
+  background: none !important;
+}
+
+.btn-danger{
+  border-radius: 24px;
+  background: #004D40;
+	padding: 12px 22px;
+  border: 2px solid #004D40;
+	color: white;
+}
+
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+	color: black;
+	border-color: #ffdc52;
+  background: #ffdc52
+}
+
+.btn-danger:active, .btn-danger.active {
+	border-color: #ffdc52 !important;
+	color: white !important;
+	box-shadow: none;
+  background: #ffdc52 !important;
 }

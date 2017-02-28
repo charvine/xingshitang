@@ -1,14 +1,35 @@
 <div class="container">
   <div class="col-md-12">
-    <h3>购物车</h3>
-    <p>您的购物车目前共有
-      <span class="badge" style="background-color: #77cde3;font-size:13px;vertical-align:center;">
+    <h2>购物车</h2>
+    <h4>您的购物车目前共有
+      <span class="badge" style="background-color: #004D40;font-size:18px;vertical-align:center;">
         <%= current_cart.products.count %>
       </span>  个商品。
-    </p>
+    </h4>
     <hr>
     <div class="col-sm-8 padding-bottom-2x">
       <div class="row shopping-cart">
+      <div class="row">
+          <div class="col-sm-4">
+
+          </div>
+
+          <div class="col-sm-2">
+            <h4 style="align:left"> 票价资讯
+           </h4>
+          </div>
+          <div class="col-sm-2">
+            <h4>数量 </h4>
+          </div>
+          <div class="col-sm-2">
+          <h4>  小记 </h4>
+          </div>
+          <div class="col-sm-2">
+          <h4>  取消 </h4>
+          </div>
+
+      </div>
+      <hr>
       <% current_cart.cart_items.each do |cart_item| %>
       <div class="row"> <!-- 每个商品建立一个row -->
       <div class="item col-sm-4">
@@ -20,7 +41,7 @@
       </div>
       <div class="item-details col-sm-2">
             <h4 class="row">
-            赴约人<%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+            <%= cart_item.product.title %>
             </h4>
 
 
@@ -42,7 +63,7 @@
 
         <div class="col-sm-2">
              <h4>
-               小结 <%= cart_item.product.price * cart_item.quantity%> RMB  </h4>
+             <%= cart_item.product.price * cart_item.quantity%> RMB  </h4>
         </div>
 
         <div class="item-delete col-sm-2">
@@ -60,11 +81,14 @@
     <aside>
       <h3 class="toolbar-title">购物车总价:</h3>
       <h4 class="amount">¥ <%= render_cart_total_price(current_cart) %></h4>
+      <br>
       <p class="text-sm text-gray"></p>
+      <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info", data: {confirm: "你确定要清空整个购物车吗？"}) %>
 
-      <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-info btn-block", data: {confirm: "你确定要清空整个购物车吗？"}) %>
+      <br>
+      <br>
 
-      <%= link_to("确认", checkout_carts_path, method: :post, class: "btn btn-danger btn-block") %>
+      <%= link_to("确认", checkout_carts_path, method: :post, class: "btn btn-danger") %>
     </aside>
   </div>
   <!-- Sidebar -->
