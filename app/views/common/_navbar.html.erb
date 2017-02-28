@@ -1,6 +1,10 @@
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+  </script>
 </head>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -29,8 +33,11 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li class="menuItem">
+
           <%= link_to carts_path do %>
-          购物车 <i class-"fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %>)
+          购物车 <span class="badge" style="background-color: #ffdc52; margin-bottom:15px; color:black;">
+                    <%= current_cart.products.count %>
+                  </span>
           <% end %>
         </li>
 
