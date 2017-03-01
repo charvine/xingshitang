@@ -1,10 +1,14 @@
+<div class="container">
 <h2>订单列表 </h2>
-
-<table class="table table-bordered">
+<hr>
+<div class="row col-md-4 col-md-offset-4">
+<table class="table table-striped orderlist">
   <thead>
     <tr>
-      <th>#</th>
-      <th>生成时间</th>
+      <th class="name"></th>
+      <th> 金额 </th>
+      <th class="time">生成时间</th>
+
 
     </tr>
   </thead>
@@ -12,10 +16,15 @@
 
     <% @orders.each do |order| %>
     <tr>
-      <td> <%= link_to(order.id, order_path(order.token)) %> </td>
-      <td> <%= order.created_at.to_s(:long) %> </td>
+      <td class="no"> <span class="badge">
+        <%= link_to(order.id, order_path(order.token)) %> </span>
+      </td>
+      <td> <%= order.total %></td>
+      <td> <%= order.created_at.to_s(:short) %> </td>
     </tr>
     <% end %>
 
   </tbody>
 </table>
+</div>
+</div>
