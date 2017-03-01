@@ -18,3 +18,29 @@
   padding-top: 12px;
   color:#004D40;
 }
+
+ .item-count input {
+  width: 55px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #ead7d1;
+  border-color: #ead7d1;
+  shadow: 0 0 0 0;
+}
+
+.item-count input:hover {
+ width: 55px;
+ background-color: #fff;
+ border-radius: 5px;
+ color: #6e3e29;
+ border-color: #ead7d1;
+ shadow: 0 0 0 0;
+}
+
+ .item-count select {
+  height: 30px;
+  background-color: #fff;
+  color: #6e3e29;
+  border-radius: 0;
+  border-color: #ead7d1;
+}

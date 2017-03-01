@@ -1,3 +1,45 @@
 // Place all the styles related to the admin::orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.orderlist{
+    border: 1px solid #004D40;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.orderlist:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+
+thead {
+  align: center;
+  font-size:20px;
+
+}
+
+.no {
+  font-size:18px
+}
+
+.no a {
+  color:white;
+}
+
+.no a:hover {
+  color:black;
+}
+
+
+.no .badge {
+  background-color:#004D40;
+  font-size: 18px;
+}
+
+.no .badge:hover{
+  background-color:#ffdc52;
+}
