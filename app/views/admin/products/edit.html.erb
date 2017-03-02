@@ -19,9 +19,18 @@
   </div>
 
   <div class="group">
-    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "分类") %>
+  <%= f.input :datetime %>
   </div>
-  
+
+  <div class="group">
+  <%= f.input :location%>
+  </div>
+
+  <div class="group">
+    <%= f.select :category_id, (@categories) %>
+
+  </div>
+
   <!--<div class="group">
     <%= f.input :categories %>
   </div> -->
