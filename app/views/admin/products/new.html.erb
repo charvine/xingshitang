@@ -19,12 +19,17 @@
   </div>
 
   <div class="group">
-    <%=f.input :image, as: :file %>
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "分类") %>
   </div>
 
   <div class="group">
-    <%= f.input :categories %>
+    <%=f.input :image, as: :file %>
   </div>
+
+
+  <!--<div class="group">
+    <%= f.input :categories %>
+  </div> -->
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
 

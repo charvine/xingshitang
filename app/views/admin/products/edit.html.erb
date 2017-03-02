@@ -19,8 +19,12 @@
   </div>
 
   <div class="group">
-    <%= f.input :categories %>
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "分类") %>
   </div>
+  
+  <!--<div class="group">
+    <%= f.input :categories %>
+  </div> -->
 
  <% if @product.image.present? %>
    <span>目前商品图</span> <br>

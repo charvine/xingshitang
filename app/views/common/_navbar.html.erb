@@ -19,15 +19,12 @@
         <li class="listItem">
           <%= link_to("热门", products_path) %>
         </li>
-        <li class="listItem">
-          <%= link_to("影星", products_path) %>
-        </li>
-        <li class="listItem">
-          <%= link_to("企业家", products_path) %>
-        </li>
-        <li class="listItem">
-          <%= link_to("网红", products_path) %>
-        </li>
+
+        <% Category.all.each do |category| %>
+          <li class="listItem">
+            <%= link_to category.name, products_path(category: category.name) %>
+          </li>
+          <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
