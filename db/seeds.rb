@@ -26,3 +26,7 @@ u.password_confirmation = "111111"   # 最少要六码
 
 u.is_admin = false
 u.save
+
+Category.create(name: "大咖")
+Category.create(name: "网红")
+Category.create(name: "企业家")
