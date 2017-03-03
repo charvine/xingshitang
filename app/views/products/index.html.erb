@@ -1,14 +1,66 @@
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to product_path(product) do %>
-        <% if product.image.present? %>
-          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+<head>
+
+</head>
+<style media="screen">
+.pdt-index{
+  background-image: url("");
+background-size: cover;
+margin: 0 auto;
+}
+
+.titlebox{
+  color:grey;
+  height:90px;
+  width:270px;
+  background-color:white ;
+  line-height: 50px;
+  clear: both;
+  margin-bottom: 50px;
+  text-align: center;
+  border-radius: 3px;
+}
+.titlebox:hover{
+  background-color:rgba(255,255,255,0.8);
+}
+</style>
+
+<body class="pdt-index">
+
+  <div class="qbbb">
+    <h2 class="productstitle" style=""></h2>
+    <hr>
+
+  </div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% @products.each do |product| %>
+      <div class="col-xs-6 col-md-4">
+        <%= link_to product_path(product) do %>
+          <% if product.image.present? %>
+            <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= product.title %> ￥ <%= product.price %>
+      <div class="titlebox">
+   <span style="font-size:22px;>"><%= product.title %>   </span><span style="color:#9b2449;font-weight:bold;font-size:18px;padding-left:50px;">      ¥ <%= product.price %></span>
+    <div class="row">
+        <div style="float:center;margin-right:12px;align:center;">
+      <%= link_to("  加入购物车", add_to_cart_product_path(product), :method => :post, :class => "btn btn-info fa fa-shopping-cart") %>
+        </div>
+      </div>
+    </div>
+
     </div>
   <% end %>
 </div>
+</div>
+</div>
+
+</div>
+<hr>
+</body>
