@@ -43,9 +43,15 @@ a:hover, a:focus, a:active, a.active, .open {
      <% end %>
    </div>
     <div style="height:100px;">
-      <p>
+      <h4>
         <%= @product.description %>
-      </p>
+        <br>
+        <br>
+        <br>
+        时间：<%= @product.datetime %>
+        <br>
+        地点：<%= @product.location %>
+      </h4>
     </div>
     <hr>
     <div> <h3> 人数 : <%= @product.quantity %>  </h3></div>
