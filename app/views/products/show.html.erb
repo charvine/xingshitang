@@ -1,5 +1,21 @@
+<style>
+a {
+  color: white;
+}
+
+a:hover, a:focus, a:active, a.active, .open {
+  color:black;
+  text-decoration: none;
+}
+</style>
+
+
+<div class="container">
+
 <div class="row">
-  <div class="col-md-6">
+  <br>
+  <br>
+  <div class="col-md-5 col-md-offset-1">
     <% if @product.image.present? %>
       <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
     <% else %>
@@ -7,14 +23,33 @@
     <% end %>
   </div>
   <div class="col-md-6">
-    <h2> <%= @product.title %> </h2>
+    <h2 > <%= @product.title %> </h2>
+    <hr>
+    <div class="pull-right">
+     <% if current_user %>
+         <% if current_user.favorites.where(product: @product).empty? %>
+         <button class="like btn btn-warning" type="button"><span class="fa fa-heart"></span>
+         <%= link_to("收藏", favorites_path(product_id: @product), method: :post) %>
+         </button>
+         <% else %>
+         <button class="like btn btn-warning" type="button"><span class="fa fa-heart"></span>
+         <%= link_to("取消收藏", favorite_path(@product), method: :delete) %>
+         </button>
+         <% end %>
+     <% else %>
+           <button class="like btn btn-warning" type="button"><span class="fa fa-heart"></span>
+           <%= link_to("收藏", favorites_path(product_id: @product), method: :post) %>
+           </button>
+     <% end %>
+   </div>
     <div style="height:100px;">
       <p>
         <%= @product.description %>
       </p>
     </div>
-    <div> 数量 : <%= @product.quantity %> </div>
-    <div class="product-price"> ￥ <%= @product.price %> </div>
+    <hr>
+    <div> <h3> 人数 : <%= @product.quantity %>  </h3></div>
+    <div class="product-price"> <h3> 价格：￥ <%= @product.price %> </h3></div>
     <div class="pull-right">
 
       <% if @product.quantity.present? && @product.quantity > 0 %>
@@ -24,29 +59,24 @@
       <% end %>
     </div>
 
-     <% if current_user %>
-         <% if current_user.favorites.where(product: @product).empty? %>
-         <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
-         <%= link_to("Favor", favorites_path(product_id: @product), method: :post) %>
-         </button>
-         <% else %>
-         <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
-         <%= link_to("Unfavor", favorite_path(@product), method: :delete) %>
-         </button>
-         <% end %>
-     <% else %>
-           <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
-           <%= link_to("Favor", favorites_path(product_id: @product), method: :post) %>
-           </button>
-     <% end %>
-    <h3 class="comments_title">
-      <%= @product.comments.count %> Comments
+  </div>
+
+  <div class="reviewbox row">
+
+<div class="review">
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3 class="reviews_title pull-">
+      <%= @product.comments.count %> 留言
     </h3>
     <hr>
-    <div id="comments">
+    <div id="reivews">
       <%= render @product.comments%>
-      <%= render "comments/form"%>
 
+        <%= render "comments/form"%>
     </div>
   </div>
+</div>
+</div>
+
+</div>
 </div>

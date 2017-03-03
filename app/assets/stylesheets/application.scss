@@ -258,6 +258,30 @@
 }
 
 
+.btn-warning{
+  border-radius: 24px;
+  background: #ffdc52;
+  border-color:#ffdc52;
+	color: white;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning {
+	color: white;
+	border-color: #ffdc52;
+  background: #ffdc52;
+}
+
+.btn-warning:active, .btn-warning.active {
+	border-color: #ffdc52 !important;
+	color: black !important;
+	box-shadow: none;
+  background: #ffdc52 !important;
+}
+
+
+
+
+
 td {
   font-size:18px
 }

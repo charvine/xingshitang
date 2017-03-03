@@ -1,3 +1,23 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-warning{
+  border-radius: 24px;
+  background: black;
+	color: white;
+}
+
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+	color: black;
+	border-color: #ffdc52;
+  background: #ffdc52
+}
+
+.btn-danger:active, .btn-danger.active {
+	border-color: #ffdc52 !important;
+	color: white !important;
+	box-shadow: none;
+  background: #ffdc52 !important;
+}
